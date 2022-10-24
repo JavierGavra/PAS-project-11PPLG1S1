@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -8,8 +6,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Test")),
-      body: Center(child: Text("Hello World")),
+      appBar: AppBar(title: const Text("Test")),
+      body: const Center(child: Text("Hello World")),
     );
   }
 }

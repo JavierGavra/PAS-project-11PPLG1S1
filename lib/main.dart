@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/home_page.dart';
+import 'package:pas_project_11pplg1s1/ui/intro/introduction_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: "Poppins"),
+      home: const IntroPage(),
     );
   }
 }
