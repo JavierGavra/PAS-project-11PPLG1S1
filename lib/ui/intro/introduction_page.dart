@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:pas_project_11pplg1s1/ui/bottom_navigation/bottom_navigation.dart';
+import 'package:pas_project_11pplg1s1/ui/home_page/home_page.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -14,7 +18,6 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipPath(
             clipper: MyClipper(),
@@ -66,6 +69,12 @@ class _IntroPageState extends State<IntroPage> {
                       onPressed: () {
                         setState(() {
                           isOn = !isOn;
+                        });
+                        Timer(Duration(milliseconds: 1400), () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BottomNavBar()));
                         });
                       },
                       style: ButtonStyle(
