@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pas_project_11pplg1s1/common/app_color.dart';
 
 class NavbarItem extends StatefulWidget {
   NavbarItem(
@@ -34,7 +35,7 @@ class _NavbarItemState extends State<NavbarItem> {
         decoration: isSelected
             ? BoxDecoration(
                 borderRadius: BorderRadius.circular(37),
-                color: const Color(0xffEA3636),
+                color: accentColor,
                 boxShadow: const [
                   BoxShadow(
                       color: Color(0x80ffffff),

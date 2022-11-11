@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_breakfast.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_dinner.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_drink.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_launch.dart';
-import 'package:pas_project_11pplg1s1/widget/featured_card.dart';
-import 'package:pas_project_11pplg1s1/widget/food_home_card.dart';
+import 'package:pas_project_11pplg1s1/widgets/featured_card.dart';
+import 'package:pas_project_11pplg1s1/widgets/food_home_card.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -15,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> _tabBarName = ["Breakfast", "Launch", "Dinner", "Drink"];
-  final List<Widget> _tabBarPages = [
+  final List<Widget> _tabBarPages = const [
     TabBreakfast(),
     TabLaunch(),
     TabDinner(),
@@ -120,8 +121,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () {},
                       child: const Text(
                         "See all",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xffEA3636)),
+                        style: TextStyle(fontSize: 15, color: accentColor),
                       ),
                     ),
                   ],
@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: current == index
-                                  ? Color(0xffEA3636)
+                                  ? accentColor
                                   : Color(0xffD0D0D0),
                               borderRadius: BorderRadius.circular(10)),
                           child: Text(

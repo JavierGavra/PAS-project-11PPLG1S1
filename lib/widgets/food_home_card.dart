@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
 
 class FoodHomeCard extends StatelessWidget {
@@ -51,31 +52,31 @@ class FoodHomeCard extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.fire_hydrant_alt_outlined,
-                        size: 10, color: Color(0xffEA3636)),
+                        size: 10, color: accentColor),
                     const SizedBox(width: 4),
                     Text(
                       "120 cal",
                       style: TextStyle(
                           fontSize: 9,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xffEA3636)),
+                          color: accentColor),
                     )
                   ],
                 ),
                 const SizedBox(width: 6),
-                Container(height: 12, width: 1, color: const Color(0xffEA3636)),
+                Container(height: 12, width: 1, color: accentColor),
                 const SizedBox(width: 6),
                 Row(
                   children: [
                     Icon(Icons.timelapse_outlined,
-                        size: 10, color: Color(0xffEA3636)),
+                        size: 10, color: accentColor),
                     const SizedBox(width: 4),
                     Text(
                       "20 min",
                       style: TextStyle(
                           fontSize: 9,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xffEA3636)),
+                          color: accentColor),
                     )
                   ],
                 ),

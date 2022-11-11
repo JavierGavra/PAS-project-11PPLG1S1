@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pas_project_11pplg1s1/widget/food_home_card.dart';
+import 'package:pas_project_11pplg1s1/common/app_color.dart';
+import 'package:pas_project_11pplg1s1/widgets/food_home_card.dart';
 
 class TabDrink extends StatelessWidget {
   const TabDrink({super.key});
@@ -22,7 +23,7 @@ class TabDrink extends StatelessWidget {
                 onTap: () {},
                 child: const Text(
                   "See all",
-                  style: TextStyle(fontSize: 15, color: Color(0xffEA3636)),
+                  style: TextStyle(fontSize: 15, color: accentColor),
                 ),
               ),
             ],
@@ -61,7 +62,7 @@ class TabDrink extends StatelessWidget {
                 onTap: () {},
                 child: const Text(
                   "See all",
-                  style: TextStyle(fontSize: 15, color: Color(0xffEA3636)),
+                  style: TextStyle(fontSize: 15, color: accentColor),
                 ),
               ),
             ],

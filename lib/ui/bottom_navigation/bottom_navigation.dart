@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/home_page.dart';
-import 'package:pas_project_11pplg1s1/widget/navbar_item.dart';
+import 'package:pas_project_11pplg1s1/widgets/navbar_item.dart';
 
 class BottomNavBar extends StatefulWidget {
   BottomNavBar({super.key});
