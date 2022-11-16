@@ -4,11 +4,12 @@ import 'package:pas_project_11pplg1s1/ui/home_page/tab_breakfast.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_dinner.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_drink.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_launch.dart';
+import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/featured_card.dart';
 import 'package:pas_project_11pplg1s1/widgets/food_home_card.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -40,17 +41,15 @@ class _HomePageState extends State<HomePage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-                        Text(
-                          "Welcome Back !",
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w500),
-                        ),
+                        MyText(
+                            text: "Welcome Back !",
+                            size: 15,
+                            weight: FontWeight.w500),
                         SizedBox(height: 7),
-                        Text(
-                          "Hi, Gavra",
-                          style: TextStyle(
-                              fontSize: 13, fontWeight: FontWeight.w300),
-                        ),
+                        MyText(
+                            text: "Hi, Gavra",
+                            size: 13,
+                            weight: FontWeight.w300),
                       ],
                     ),
                     Spacer(),
@@ -72,19 +71,13 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
                   children: [
-                    const Text(
-                      "Featured",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-                    ),
+                    const MyText(
+                        text: "Featured", weight: FontWeight.w600, size: 15),
                     const Spacer(),
                     InkWell(
                       onTap: () {},
-                      child: const Text(
-                        "See all",
-                        style:
-                            TextStyle(fontSize: 15, color: Color(0xffEA3636)),
-                      ),
+                      child: const MyText(
+                          text: "See all", size: 15, color: Color(0xffEA3636)),
                     ),
                   ],
                 ),
@@ -111,18 +104,13 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Row(
                   children: [
-                    const Text(
-                      "Category",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-                    ),
+                    const MyText(
+                        text: "Category", weight: FontWeight.w600, size: 15),
                     const Spacer(),
                     InkWell(
                       onTap: () {},
-                      child: const Text(
-                        "See all",
-                        style: TextStyle(fontSize: 15, color: accentColor),
-                      ),
+                      child: const MyText(
+                          text: "See all", size: 15, color: accentColor),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_back_button.dart';
+import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/wishlist_button.dart';
 
 class DetailPage extends StatefulWidget {
@@ -15,139 +16,141 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return Scaffold(
-      // appBar: AppBar(title: Text("Detail")),
-      body: SizedBox(
-        // height: 1000,
-        child: SingleChildScrollView(
-          child: Stack(
-            children: [
-              Container(
-                height: screenSize.height,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      accentColor,
-                      Color(0x80FF5A00),
+        // appBar: AppBar(title: Text("Detail")),
+        body: SizedBox(
+          // height: 1000,
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Container(
+                  height: screenSize.height,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        accentColor,
+                        Color(0x80FF5A00),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 161),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 11, horizontal: 18),
+                  // height: 800,
+                  width: screenSize.width,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: (screenSize.width - 360) + 27),
+                        child: Container(
+                          height: 3,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 23),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: screenSize.width - 360 - 5),
+                        child: Row(
+                          children: const [
+                            CustomBackButton(),
+                            SizedBox(width: 20),
+                            WishlistButton(),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 55),
+                      MyText(
+                          text: "American Steak",
+                          weight: FontWeight.w500,
+                          size: 20),
+                      const SizedBox(height: 4),
+                      MyText(
+                          text:
+                              "Let's make home cooking more special with recipes from Oishii!",
+                          size: 15,
+                          color: Color(0xff8F8F8F)),
+                      const SizedBox(height: 13),
+                      const MyText(
+                        text: "Nutrition Facts",
+                        size: 13,
+                        color: Color(0xff8F8F8F),
+                        weight: FontWeight.w500,
+                      ),
+                      const SizedBox(height: 13),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _nutriTab(247, "Calories", "kcal"),
+                          _nutriTab(247, "Carbo", "gr"),
+                          _nutriTab(247, "Proteins", "gr"),
+                          _nutriTab(247, "Fats", "gr"),
+                        ],
+                      ),
+                      const SizedBox(height: 30),
+                      const MyText(
+                        text: "Ingredients",
+                        size: 13,
+                        color: Color(0xff8F8F8F),
+                        weight: FontWeight.w500,
+                      ),
+                      const SizedBox(height: 3),
+                      ListView.builder(
+                        itemCount: 5,
+                        shrinkWrap: true,
+                        padding: EdgeInsets.zero,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 10),
+                            child: _ingredientTab("Fresh Meat", "200 gr"),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 56)
                     ],
                   ),
                 ),
-              ),
-              Container(
-                margin: const EdgeInsets.only(top: 161),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 11, horizontal: 18),
-                // height: 800,
-                width: screenSize.width,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: (screenSize.width - 360) + 27),
-                      child: Container(
-                        height: 3,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.grey,
-                        ),
+                Positioned(
+                  top: 60,
+                  right: 30,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Container(
+                      width: 200,
+                      height: 200,
+                      color: Colors.black,
+                      child: Image.asset(
+                        "assets/images/featured_img.png",
+                        fit: BoxFit.cover,
+                        filterQuality: FilterQuality.high,
                       ),
                     ),
-                    const SizedBox(height: 23),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: screenSize.width - 360 - 5),
-                      child: Row(
-                        children: const [
-                          CustomBackButton(),
-                          SizedBox(width: 20),
-                          WishlistButton(),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 55),
-                    Text(
-                      "American Steak",
-                      style: const TextStyle(
-                          fontWeight: FontWeight.w500, fontSize: 20),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      "Let's make home cooking more special with recipes from Oishii!",
-                      style: const TextStyle(
-                          fontSize: 15, color: Color(0xff8F8F8F)),
-                    ),
-                    const SizedBox(height: 13),
-                    const Text(
-                      "Nutrition Facts",
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xff8F8F8F),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(height: 13),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        _nutriTab(247, "Calories", "kcal"),
-                        _nutriTab(247, "Carbo", "gr"),
-                        _nutriTab(247, "Proteins", "gr"),
-                        _nutriTab(247, "Fats", "gr"),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
-                    const Text(
-                      "Ingredients",
-                      style: TextStyle(
-                          fontSize: 13,
-                          color: Color(0xff8F8F8F),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    const SizedBox(height: 3),
-                    ListView.builder(
-                      itemCount: 10,
-                      shrinkWrap: true,
-                      padding: EdgeInsets.zero,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: _ingredientTab("Fresh Meat", "200 gr"),
-                        );
-                      },
-                    )
-                  ],
-                ),
-              ),
-              Positioned(
-                top: 60,
-                right: 30,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    width: 200,
-                    height: 200,
-                    color: Colors.black,
-                    child: Image.asset(
-                      "assets/images/featured_img.png",
-                      fit: BoxFit.cover,
-                      filterQuality: FilterQuality.high,
-                    ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
-      ),
-    );
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: FloatingActionButton.extended(
+          label: const Text("Start Cook!"),
+          onPressed: () {},
+        ));
   }
 
   Widget _nutriTab(num value, String name, String unit) {
@@ -173,23 +176,24 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
               color: Colors.white,
               shape: BoxShape.circle,
             ),
-            child: Text(
-              value.toString(),
-              style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
+            child: MyText(
+              text: value.toString(),
+              weight: FontWeight.w500,
+              size: 15,
             ),
           ),
           const SizedBox(height: 10),
-          Text(
-            name,
-            style: const TextStyle(
-                fontWeight: FontWeight.w500, fontSize: 12, color: primaryColor),
+          MyText(
+            text: name,
+            weight: FontWeight.w500,
+            size: 12,
+            color: primaryColor,
           ),
-          Text(
-            unit,
-            style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 12,
-                color: Color(0xff505050)),
+          MyText(
+            text: unit,
+            weight: FontWeight.w500,
+            size: 12,
+            color: const Color(0xff505050),
           ),
         ],
       ),
@@ -218,17 +222,13 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
       ),
       child: Row(
         children: [
-          Text(
-            name,
-            style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
-          ),
-          Spacer(),
-          Text(
-            value,
-            style: const TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 15,
-                color: Color(0xff8F8F8F)),
+          MyText(text: name, weight: FontWeight.w500, size: 15),
+          const Spacer(),
+          MyText(
+            text: value,
+            weight: FontWeight.w500,
+            size: 15,
+            color: const Color(0xff8F8F8F),
           ),
         ],
       ),
