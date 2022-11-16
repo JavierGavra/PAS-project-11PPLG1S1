@@ -7,83 +7,25 @@ class TabDrink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Popular
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Row(
-            children: [
-              const Text(
-                "Popular Drink",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  "See all",
-                  style: TextStyle(fontSize: 15, color: accentColor),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 187,
-          child: ListView.builder(
-            padding:
-                const EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 10),
-            scrollDirection: Axis.horizontal,
-            itemCount: 7,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: FoodHomeCard(
-                  cardImg: "assets/images/drink_img.jpeg",
-                ),
-              );
-            },
-          ),
-        ),
-
-        // Recommended
-        const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Row(
-            children: [
-              const Text(
-                "Recommended Drink",
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),
-              ),
-              const Spacer(),
-              InkWell(
-                onTap: () {},
-                child: const Text(
-                  "See all",
-                  style: TextStyle(fontSize: 15, color: accentColor),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 187,
-          child: ListView.builder(
-            padding:
-                const EdgeInsets.only(left: 15, right: 15, top: 7, bottom: 10),
-            scrollDirection: Axis.horizontal,
-            itemCount: 7,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: FoodHomeCard(cardImg: "assets/images/drink_img.jpeg"),
-              );
-            },
-          ),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+      child: GridView.builder(
+        itemCount: 10,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 24,
+            crossAxisSpacing: 27,
+            childAspectRatio: (145 / 160)),
+        itemBuilder: (context, index) {
+          return const FoodHomeCard(
+            cardImg: "assets/images/drink_img.jpeg",
+            category: "Snack",
+            title: "Poached Egg With Spinach and Tomato dnadjsndj",
+          );
+        },
+      ),
     );
   }
 }

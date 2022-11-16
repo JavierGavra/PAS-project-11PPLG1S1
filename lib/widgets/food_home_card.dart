@@ -1,89 +1,144 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
+import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 
 class FoodHomeCard extends StatelessWidget {
-  FoodHomeCard({super.key, required this.cardImg});
-  String cardImg;
+  const FoodHomeCard({
+    super.key,
+    required this.cardImg,
+    required this.category,
+    required this.title,
+  });
+  final String cardImg, category, title;
 
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
     return InkWell(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
       onTap: () {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => DetailPage()));
       },
       child: Ink(
         height: 170,
-        width: 140,
-        padding: const EdgeInsets.all(13),
-        decoration: BoxDecoration(
+        width: 145,
+        decoration: const BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: const [
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            bottomRight: Radius.circular(20),
+          ),
+          boxShadow: [
             BoxShadow(
                 color: Color(0x40000000), offset: Offset(0, 1), blurRadius: 5)
           ],
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(
-                cardImg,
-                height: 90,
-                width: 114,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 7),
-            Text(
-              "Bakmi goreng saus samyang special",
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12, fontFamily: "Port_Lligat_Sans"),
-            ),
-            const SizedBox(height: 8),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Row(
+                const SizedBox(width: 0),
+                Column(
                   children: [
-                    Icon(Icons.fire_hydrant_alt_outlined,
-                        size: 10, color: accentColor),
-                    const SizedBox(width: 4),
-                    Text(
-                      "120 cal",
-                      style: TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w600,
-                          color: accentColor),
-                    )
+                    _otherInfo("320", "Kal", Icons.fastfood, screenSize.width),
+                    const SizedBox(height: 5),
+                    _otherInfo(
+                        "120", "Min", Icons.timer_outlined, screenSize.width),
                   ],
                 ),
-                const SizedBox(width: 6),
-                Container(height: 12, width: 1, color: accentColor),
-                const SizedBox(width: 6),
-                Row(
-                  children: [
-                    Icon(Icons.timelapse_outlined,
-                        size: 10, color: accentColor),
-                    const SizedBox(width: 4),
-                    Text(
-                      "20 min",
-                      style: TextStyle(
-                          fontSize: 9,
-                          fontWeight: FontWeight.w600,
-                          color: accentColor),
-                    )
-                  ],
+                // const SizedBox(width: 9),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Container(
+                    height: 72,
+                    width: 72,
+                    decoration: const BoxDecoration(
+                        borderRadius:
+                            BorderRadius.only(bottomLeft: Radius.circular(30)),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color(0x40000000),
+                              offset: Offset(0, 1),
+                              blurRadius: 5),
+                        ]),
+                    child: ClipRRect(
+                      borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(30)),
+                      child: Image.asset(
+                        cardImg,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
                 ),
               ],
+            ),
+            const SizedBox(height: 10),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Container(
+                width: 72,
+                height: 20,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                    color: accentColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(24),
+                      bottomLeft: Radius.circular(24),
+                    )),
+                child: MyText(
+                  text: category,
+                  size: 10,
+                  weight: FontWeight.w500,
+                  color: primaryColor,
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 9),
+              child: Text(
+                title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+              ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _otherInfo(
+      String value, String unit, IconData icon, final screenWidth) {
+    return Container(
+      height: 30,
+      width: screenWidth - (screenWidth - 55) + 10,
+      decoration: BoxDecoration(
+          color: primaryColor,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: const [
+            BoxShadow(
+                color: Color(0x40000000), offset: Offset(0, 1), blurRadius: 5)
+          ]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 12),
+          const SizedBox(width: 2),
+          MyText(
+            text: "$value $unit",
+            size: 8,
+            weight: FontWeight.w600,
+          )
+        ],
       ),
     );
   }

@@ -19,7 +19,7 @@ class CustomBackButton extends StatelessWidget {
             BoxShadow(
                 color: Colors.white, offset: Offset(-10, -10), blurRadius: 20),
           ]),
-      child: BackButton(),
+      child: const BackButton(),
     );
   }
 }

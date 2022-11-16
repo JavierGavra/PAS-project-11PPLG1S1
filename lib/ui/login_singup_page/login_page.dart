@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Container(
         height: screenSize.height,
-        padding: EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: 16),
         // alignment: Alignment.bottomCenter,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -127,7 +127,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -141,7 +141,7 @@ class LoginPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => RegisterPage()));
+                              builder: (context) => const RegisterPage()));
                     },
                     style: TextButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 4)),

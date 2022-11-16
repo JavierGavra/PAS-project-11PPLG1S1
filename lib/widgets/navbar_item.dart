@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 
 class NavbarItem extends StatefulWidget {
-  NavbarItem(
+  const NavbarItem(
       {super.key,
       required this.icon,
       required this.iconSelcted,
       required this.indexItem,
       required this.index,
       required this.onChangedTab});
-  IconData icon;
-  IconData iconSelcted;
+  final IconData icon;
+  final IconData iconSelcted;
   final int index;
   final int indexItem;
   final ValueChanged<int> onChangedTab;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
-import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
 import 'package:pas_project_11pplg1s1/ui/wishlist_page/not_login.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/wishlist_card.dart';
@@ -37,7 +36,7 @@ class _WishlistPageState extends State<WishlistPage> {
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(horizontal: 20),
               itemBuilder: (context, index) {
-                return WishlistCard();
+                return const WishlistCard();
               },
             )
           : const NotLogin(),

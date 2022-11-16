@@ -6,7 +6,6 @@ import 'package:pas_project_11pplg1s1/ui/home_page/tab_drink.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_launch.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/featured_card.dart';
-import 'package:pas_project_11pplg1s1/widgets/food_home_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> _tabBarName = ["Breakfast", "Launch", "Dinner", "Drink"];
+  final List<String> _tabBarName = ["Breakfast", "Soup", "Drink", "Snack"];
   final List<Widget> _tabBarPages = const [
     TabBreakfast(),
     TabLaunch(),
@@ -42,17 +41,17 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         MyText(
-                            text: "Welcome Back !",
+                            text: "Hi, Javier Rasyid Abhifawwaz",
                             size: 15,
                             weight: FontWeight.w500),
                         SizedBox(height: 7),
                         MyText(
-                            text: "Hi, Gavra",
-                            size: 13,
+                            text: "What do you want to cook?",
+                            size: 12,
                             weight: FontWeight.w300),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Image.asset(
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const SizedBox(height: 7),
               SizedBox(
-                height: 100,
+                height: 110,
                 child: ListView.builder(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   scrollDirection: Axis.horizontal,
@@ -132,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 4),
                         child: AnimatedContainer(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           height: 32,
                           width: 104,
                           alignment: Alignment.center,
@@ -158,12 +157,8 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // Main Body
-              const SizedBox(height: 20),
-              Container(
-                height: 440,
-                width: MediaQuery.of(context).size.width,
-                child: _tabBarPages[current],
-              )
+              const SizedBox(height: 15),
+              _tabBarPages[current]
             ],
           ),
         ),

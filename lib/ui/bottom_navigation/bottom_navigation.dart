@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/ui/account_page/account_page.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/home_page.dart';
+import 'package:pas_project_11pplg1s1/ui/search_page/search_page.dart';
 import 'package:pas_project_11pplg1s1/ui/wishlist_page/wishlist_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/navbar_item.dart';
 
 class BottomNavBar extends StatefulWidget {
-  BottomNavBar({super.key});
+  const BottomNavBar({super.key});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -16,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final pages = <Widget>[
     const HomePage(),
-    const Center(child: Text("Searh Page")),
+    const SearchPage(),
     const WishlistPage(),
     const AccountPage(),
   ];
@@ -35,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           // elevation: 0,
           // color: Colors.transparent,
           child: Container(
-        padding: EdgeInsets.symmetric(vertical: 17, horizontal: 33),
+        padding: const EdgeInsets.symmetric(vertical: 17, horizontal: 33),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

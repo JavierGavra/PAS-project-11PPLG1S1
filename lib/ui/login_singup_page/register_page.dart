@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       body: Container(
         height: screenSize.height,
-        padding: EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: 16),
         alignment: Alignment.bottomCenter,
         child: SingleChildScrollView(
           child: Column(
@@ -142,7 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
