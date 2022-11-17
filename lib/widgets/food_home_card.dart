@@ -23,7 +23,7 @@ class FoodHomeCard extends StatelessWidget {
             context, MaterialPageRoute(builder: (context) => DetailPage()));
       },
       child: Ink(
-        height: 170,
+        height: 160,
         width: 145,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -41,7 +41,7 @@ class FoodHomeCard extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(width: 0),
                 Column(
@@ -56,8 +56,8 @@ class FoodHomeCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Container(
-                    height: 72,
-                    width: 72,
+                    height: 78,
+                    width: 78,
                     decoration: const BoxDecoration(
                         borderRadius:
                             BorderRadius.only(bottomLeft: Radius.circular(30)),
@@ -79,18 +79,28 @@ class FoodHomeCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 9),
+              child: Text(
+                title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style:
+                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+              ),
+            ),
+            const SizedBox(height: 15),
             Align(
-              alignment: Alignment.centerRight,
+              alignment: Alignment.bottomLeft,
               child: Container(
-                width: 72,
+                // width: 72,
                 height: 20,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                     color: accentColor,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(24),
-                      bottomLeft: Radius.circular(24),
+                      bottomRight: Radius.circular(24),
                     )),
                 child: MyText(
                   text: category,
@@ -100,16 +110,6 @@ class FoodHomeCard extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 9),
-              child: Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
-              ),
-            )
           ],
         ),
       ),
@@ -120,7 +120,7 @@ class FoodHomeCard extends StatelessWidget {
       String value, String unit, IconData icon, final screenWidth) {
     return Container(
       height: 30,
-      width: screenWidth - (screenWidth - 55) + 10,
+      width: screenWidth - (screenWidth - 55) + 6,
       decoration: BoxDecoration(
           color: primaryColor,
           borderRadius: BorderRadius.circular(12),

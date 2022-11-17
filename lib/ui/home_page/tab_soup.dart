@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/widgets/food_home_card.dart';
 
-class TabLaunch extends StatelessWidget {
-  const TabLaunch({super.key});
+class TabSoup extends StatelessWidget {
+  const TabSoup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,12 +11,13 @@ class TabLaunch extends StatelessWidget {
       child: GridView.builder(
         itemCount: 10,
         shrinkWrap: true,
+        padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 24,
             crossAxisSpacing: 27,
-            childAspectRatio: (145 / 160)),
+            childAspectRatio: (145 / 155.3)),
         itemBuilder: (context, index) {
           return const FoodHomeCard(
             cardImg: "assets/images/launch_img.png",

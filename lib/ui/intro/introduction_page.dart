@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/ui/login_singup_page/login_page.dart';
 
 class IntroPage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _IntroPageState extends State<IntroPage> {
                         TextSpan(text: "Easy Cooking at Home With "),
                         TextSpan(
                             text: "Lezzat",
-                            style: TextStyle(color: Color(0xffEA3636))),
+                            style: TextStyle(color: accentColor)),
                       ],
                     ),
                     textAlign: TextAlign.center,
@@ -76,8 +77,7 @@ class _IntroPageState extends State<IntroPage> {
                         });
                       },
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(const Color(0xffEA3636)),
+                        backgroundColor: MaterialStateProperty.all(accentColor),
                         shape: MaterialStateProperty.all(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
