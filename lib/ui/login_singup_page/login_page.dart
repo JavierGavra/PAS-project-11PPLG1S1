@@ -4,6 +4,7 @@ import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/common/svg_assets.dart';
 import 'package:pas_project_11pplg1s1/ui/bottom_navigation/bottom_navigation.dart';
 import 'package:pas_project_11pplg1s1/ui/login_singup_page/register_page.dart';
+import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -14,6 +15,36 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BottomNavBar()));
+              },
+              child: Row(
+                children: const [
+                  MyText(
+                    text: "Not Now",
+                    size: 12,
+                    weight: FontWeight.w600,
+                    color: Color(0x80263238),
+                  ),
+                  SizedBox(width: 4),
+                  Icon(Icons.arrow_forward, size: 16, color: Color(0x80263238)),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
       body: Container(
         height: screenSize.height,
         padding: const EdgeInsets.only(bottom: 16),

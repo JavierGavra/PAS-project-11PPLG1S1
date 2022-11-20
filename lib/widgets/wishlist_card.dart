@@ -14,7 +14,7 @@ class WishlistCard extends StatelessWidget {
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
-        padding: const EdgeInsets.symmetric(horizontal: 5),
+        padding: const EdgeInsets.only(left: 5),
         height: 70,
         decoration: BoxDecoration(
           color: primaryColor,
@@ -50,11 +50,21 @@ class WishlistCard extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const Icon(
-              Icons.arrow_forward_ios,
-              size: 15,
+            Container(
+              height: 70,
+              width: 24,
+              decoration: const BoxDecoration(
+                color: accentColor,
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(10),
+                    topRight: Radius.circular(10)),
+              ),
+              child: const Icon(
+                Icons.arrow_forward_ios,
+                size: 13,
+                color: primaryColor,
+              ),
             ),
-            const SizedBox(width: 5)
           ],
         ),
       ),

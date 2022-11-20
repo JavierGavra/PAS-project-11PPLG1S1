@@ -29,7 +29,7 @@ class _NavbarItemState extends State<NavbarItem> {
       },
       borderRadius: BorderRadius.circular(24),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 160),
+        duration: const Duration(milliseconds: 280),
         height: 50,
         width: isSelected ? 80 : 50,
         decoration: isSelected

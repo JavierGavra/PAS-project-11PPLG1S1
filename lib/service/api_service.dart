@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   final baseUrl = "https://api.spoonacular.com/";
+  final apiKey = "?apiKey=e41f89c6203a4f248a8ddbf5dfbf364a";
 
   Future getBreakfast() async {
     const endPoint = "";
