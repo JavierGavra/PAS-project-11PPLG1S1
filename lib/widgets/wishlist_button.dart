@@ -20,8 +20,8 @@ class _WishlistButtonState extends State<WishlistButton> {
         });
       },
       child: Container(
-        height: 40,
-        width: 40,
+        height: 46,
+        width: 46,
         decoration: const BoxDecoration(
             color: Color(0xffF5F5F9),
             shape: BoxShape.circle,

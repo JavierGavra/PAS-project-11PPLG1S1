@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 
 class FeaturedCard extends StatelessWidget {
-  const FeaturedCard({super.key});
+  const FeaturedCard({
+    super.key,
+    required this.cardImg,
+    required this.title,
+  });
+  final String cardImg, title;
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +18,8 @@ class FeaturedCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         child: Stack(
           children: [
-            Image.asset(
-              "assets/images/featured_img.png",
+            Image.network(
+              cardImg,
               height: 110,
               width: 170,
               fit: BoxFit.cover,
@@ -25,11 +30,11 @@ class FeaturedCard extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               padding: const EdgeInsets.all(10),
               color: const Color(0x5E000000),
-              child: const Text(
-                "Onigiri Japanese Salmon Sushi",
+              child: Text(
+                title,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: primaryColor),

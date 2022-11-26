@@ -1,16 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
+import 'package:pas_project_11pplg1s1/model/recipe_nutition_model.dart';
+import 'package:pas_project_11pplg1s1/service/api_service.dart';
 import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
+import 'package:pas_project_11pplg1s1/widgets/shimmer_widget.dart';
 
-class FoodHomeCard extends StatelessWidget {
+class FoodHomeCard extends StatefulWidget {
   const FoodHomeCard({
     super.key,
+    required this.idResep,
     required this.cardImg,
     required this.category,
     required this.title,
   });
   final String cardImg, category, title;
+  final int idResep;
+
+  @override
+  State<FoodHomeCard> createState() => _FoodHomeCardState();
+}
+
+class _FoodHomeCardState extends State<FoodHomeCard> {
+  // RecipeNutrition? _recipeNutrition;
+  // bool isLoading = true;
+
+  // Future getApi() async {
+  //   _recipeNutrition =
+  //       await ApiService().getRecipeNutrition(widget.idResep.toString());
+  //   setState(() {
+  //     isLoading = false;
+  //   });
+  // }
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getApi();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +48,9 @@ class FoodHomeCard extends StatelessWidget {
           topLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => DetailPage()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailPage(idResep: widget.idResep)));
       },
       child: Ink(
         height: 160,
@@ -39,58 +69,49 @@ class FoodHomeCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(width: 0),
-                Column(
-                  children: [
-                    _otherInfo("320", "Kal", Icons.fastfood, screenSize.width),
-                    const SizedBox(height: 5),
-                    _otherInfo(
-                        "120", "Min", Icons.timer_outlined, screenSize.width),
-                  ],
-                ),
-                // const SizedBox(width: 9),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Container(
-                    height: 78,
-                    width: 78,
-                    decoration: const BoxDecoration(
-                        borderRadius:
-                            BorderRadius.only(bottomLeft: Radius.circular(30)),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Color(0x40000000),
-                              offset: Offset(0, 1),
-                              blurRadius: 5),
-                        ]),
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(30)),
-                      child: Image.asset(
-                        cardImg,
-                        fit: BoxFit.cover,
-                      ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                height: 70,
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(30),
                     ),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0x40000000),
+                          offset: Offset(0, 1),
+                          blurRadius: 5),
+                    ]),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(30),
+                  ),
+                  child: Image.network(
+                    widget.cardImg,
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ],
+              ),
             ),
             const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 9),
-              child: Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style:
-                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+              child: SizedBox(
+                height: 36,
+                child: Text(
+                  widget.title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                      fontSize: 12, fontWeight: FontWeight.w600),
+                ),
               ),
             ),
-            const SizedBox(height: 15),
+            const SizedBox(height: 14),
             Align(
               alignment: Alignment.bottomLeft,
               child: Container(
@@ -103,7 +124,7 @@ class FoodHomeCard extends StatelessWidget {
                       bottomRight: Radius.circular(24),
                     )),
                 child: MyText(
-                  text: category,
+                  text: widget.category,
                   size: 10,
                   weight: FontWeight.w500,
                   color: primaryColor,
@@ -140,6 +161,14 @@ class FoodHomeCard extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Widget _otherInfoLoading(final screenWidth) {
+    return ShimmerWidget(
+      height: 30,
+      width: screenWidth - (screenWidth - 55) + 6,
+      borderRadius: BorderRadius.circular(12),
     );
   }
 }

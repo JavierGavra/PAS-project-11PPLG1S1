@@ -13,7 +13,7 @@ class WishlistPage extends StatefulWidget {
 
 class _WishlistPageState extends State<WishlistPage> {
   ScrollController? _scrollController;
-  final double _height = 149;
+  final double _height = 153.9;
   bool _lastStatus = true;
   bool isLogin = true;
 
@@ -67,7 +67,7 @@ class _WishlistPageState extends State<WishlistPage> {
                       : null,
                   flexibleSpace: FlexibleSpaceBar(
                     background: Padding(
-                      padding: const EdgeInsets.only(top: 50, bottom: 20),
+                      padding: const EdgeInsets.only(top: 50, bottom: 25),
                       child: Column(
                         children: [
                           const MyText(
