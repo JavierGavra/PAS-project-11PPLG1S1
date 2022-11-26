@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/ui/login_singup_page/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -12,6 +13,12 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> {
   bool isOn = false;
+  bool isIntro = false;
+
+  Future<void> setPreference() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('isIntro', isIntro);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +75,8 @@ class _IntroPageState extends State<IntroPage> {
                       onPressed: () {
                         setState(() {
                           isOn = !isOn;
+                          isIntro = !isIntro;
+                          setPreference();
                         });
                         Timer(const Duration(milliseconds: 1400), () {
                           Navigator.push(
