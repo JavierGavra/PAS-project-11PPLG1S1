@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pas_project_11pplg1s1">
    <application
-        android:label="pas_project_11pplg1s1"
+        android:label="Lezzat"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pas_project_11pplg1s1/ui/account_page/account_page.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/home_page.dart';
-import 'package:pas_project_11pplg1s1/ui/search_page/search_page.dart';
-import 'package:pas_project_11pplg1s1/ui/wishlist_page/wishlist_page.dart';
+import 'package:pas_project_11pplg1s1/ui/account/account_page.dart';
+import 'package:pas_project_11pplg1s1/ui/home/home_page.dart';
+import 'package:pas_project_11pplg1s1/ui/search/search_page.dart';
+import 'package:pas_project_11pplg1s1/ui/wishlist/wishlist_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/navbar_item.dart';
 
 class BottomNavBar extends StatefulWidget {

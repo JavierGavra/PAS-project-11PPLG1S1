@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
-import 'package:pas_project_11pplg1s1/ui/wishlist_page/not_login.dart';
+import 'package:pas_project_11pplg1s1/ui/wishlist/not_login.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/wishlist_card.dart';
 

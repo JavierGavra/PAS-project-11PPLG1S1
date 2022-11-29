@@ -3,7 +3,7 @@ import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/model/recipe_information_model.dart';
 import 'package:pas_project_11pplg1s1/model/recipe_nutition_model.dart';
 import 'package:pas_project_11pplg1s1/service/api_service.dart';
-import 'package:pas_project_11pplg1s1/ui/step_page/step_food_page.dart';
+import 'package:pas_project_11pplg1s1/ui/step/step_food_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_back_button.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/wishlist_button.dart';

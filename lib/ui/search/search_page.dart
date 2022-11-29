@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
-import 'package:pas_project_11pplg1s1/ui/search_page/after_search.dart';
-import 'package:pas_project_11pplg1s1/ui/search_page/before_search.dart';
+import 'package:pas_project_11pplg1s1/ui/search/after_search.dart';
+import 'package:pas_project_11pplg1s1/ui/search/before_search.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 
 class SearchPage extends StatefulWidget {

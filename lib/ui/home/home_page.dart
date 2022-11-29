@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/model/recipe_list_model.dart';
 import 'package:pas_project_11pplg1s1/service/api_service.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/loading_home.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/tab_breakfast.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/tab_drink.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/tab_snack.dart';
-import 'package:pas_project_11pplg1s1/ui/home_page/tab_soup.dart';
+import 'package:pas_project_11pplg1s1/ui/home/loading_home.dart';
+import 'package:pas_project_11pplg1s1/ui/home/tab_breakfast.dart';
+import 'package:pas_project_11pplg1s1/ui/home/tab_drink.dart';
+import 'package:pas_project_11pplg1s1/ui/home/tab_snack.dart';
+import 'package:pas_project_11pplg1s1/ui/home/tab_soup.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/featured_card.dart';
 
