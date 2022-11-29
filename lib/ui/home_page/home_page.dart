@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/model/recipe_list_model.dart';
@@ -47,6 +48,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
+
     return Scaffold(
       body: isLoading
           ? const HomePageLoading()
@@ -68,9 +71,9 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
+                            children: [
                               MyText(
-                                  text: "Hi, Javier Rasyid Abhifawwaz",
+                                  text: "Hi, ${user.email ?? "Gavra"}",
                                   size: 15,
                                   weight: FontWeight.w500),
                               SizedBox(height: 7),
@@ -131,8 +134,11 @@ class _HomePageState extends State<HomePage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 7),
                               child: FeaturedCard(
-                                  cardImg: data.image.toString(),
-                                  title: data.title.toString()),
+                                cardImg: data.image.toString(),
+                                title: data.title.toString(),
+                                idResep:
+                                    _recipeList!.results![index].id!.toInt(),
+                              ),
                             );
                           },
                         ),

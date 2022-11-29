@@ -5,6 +5,8 @@ import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/common/svg_assets.dart';
 import 'package:pas_project_11pplg1s1/ui/bottom_navigation/bottom_navigation.dart';
 import 'package:pas_project_11pplg1s1/ui/intro/introduction_page.dart';
+import 'package:pas_project_11pplg1s1/ui/define_main_page/define_page.dart';
+import 'package:pas_project_11pplg1s1/ui/login_singup_page/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -15,11 +17,11 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  bool isIntro = false;
+  bool isIntroDone = false;
 
-  Future<bool> getPreference() async {
+  Future<bool> getIntroDone() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isIntro') ?? false;
+    return prefs.getBool('isIntroDone') ?? false;
   }
 
   void movePage() {
@@ -28,7 +30,7 @@ class _SplashscreenState extends State<Splashscreen> {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  isIntro ? const BottomNavBar() : const IntroPage()));
+                  isIntroDone ? const DefineIntroPage() : const IntroPage()));
     });
   }
 
@@ -36,11 +38,11 @@ class _SplashscreenState extends State<Splashscreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    movePage();
-    getPreference().then((value) {
-      isIntro = value;
+    getIntroDone().then((value) {
+      isIntroDone = value;
       setState(() {});
     });
+    movePage();
   }
 
   @override

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>456526339950-ermk481k3haaoc6j8lu7he1u0vgidmd6.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.456526339950-ermk481k3haaoc6j8lu7he1u0vgidmd6</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDsNgUyLcRd0qA8jVebVZLwlJ6b7h7g5Pg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>456526339950</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.pasProject11pplg1s1</string>
+	<key>PROJECT_ID</key>
+	<string>lezzat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lezzat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:456526339950:ios:c29e9da0b6362bae1c6b7f</string>
+</dict>
+</plist>

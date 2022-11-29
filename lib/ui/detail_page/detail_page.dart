@@ -21,6 +21,7 @@ class _DetailPageState extends State<DetailPage> with TickerProviderStateMixin {
   RecipeInformation? _recipeInformation;
   RecipeNutrition? _recipeNutrition;
   bool isLoading = true;
+
   num? kcal, carbo, protein, fats;
 
   Future getApi() async {

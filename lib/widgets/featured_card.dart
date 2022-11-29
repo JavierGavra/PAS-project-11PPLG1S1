@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
+import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
 
 class FeaturedCard extends StatelessWidget {
   const FeaturedCard({
     super.key,
     required this.cardImg,
     required this.title,
+    required this.idResep,
   });
   final String cardImg, title;
+  final int idResep;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DetailPage(idResep: idResep)));
+      },
       splashColor: accentColor,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),

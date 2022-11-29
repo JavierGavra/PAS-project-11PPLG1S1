@@ -6,7 +6,7 @@ import 'package:pas_project_11pplg1s1/model/recipe_nutition_model.dart';
 
 class ApiService {
   final baseUrl = "https://api.spoonacular.com/";
-  final apiKey = "?apiKey=9c8843a3da234698aacf8a8f77651d6b";
+  final apiKey = "?apiKey=818e6ad2e921460384f558001f053707";
 
   Future getDaftarResep() async {
     const endPoint = "recipes/complexSearch";

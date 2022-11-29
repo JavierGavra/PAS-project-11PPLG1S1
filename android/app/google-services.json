@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "456526339950",
+    "project_id": "lezzat",
+    "storage_bucket": "lezzat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456526339950:android:602a92d9dcc356cb1c6b7f",
+        "android_client_info": {
+          "package_name": "com.example.pas_project_11pplg1s1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "456526339950-7u0pks7i5u74vng35nf5qgto461nna5d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOR14rd7kTnBztUtaCdEezJWSkqflV8qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456526339950-7u0pks7i5u74vng35nf5qgto461nna5d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "456526339950-ermk481k3haaoc6j8lu7he1u0vgidmd6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pasProject11pplg1s1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

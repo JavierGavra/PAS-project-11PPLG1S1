@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
@@ -6,8 +8,47 @@ import 'package:pas_project_11pplg1s1/ui/bottom_navigation/bottom_navigation.dar
 import 'package:pas_project_11pplg1s1/ui/login_singup_page/register_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key, required this.onClickedSignUp});
+  final VoidCallback onClickedSignUp;
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  Future singInWithEmail() async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => const Center(child: CircularProgressIndicator()));
+
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 2),
+            content: Text("Log In failed, maybe something went wrong !")),
+      );
+    }
+    Navigator.of(context, rootNavigator: true).pop();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,36 +56,36 @@ class LoginPage extends StatelessWidget {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const BottomNavBar()));
-              },
-              child: Row(
-                children: const [
-                  MyText(
-                    text: "Not Now",
-                    size: 12,
-                    weight: FontWeight.w600,
-                    color: Color(0x80263238),
-                  ),
-                  SizedBox(width: 4),
-                  Icon(Icons.arrow_forward, size: 16, color: Color(0x80263238)),
-                ],
-              ),
-            ),
-          )
-        ],
-      ),
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      //   actions: [
+      //     Padding(
+      //       padding: const EdgeInsets.only(right: 20),
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Navigator.pushReplacement(
+      //               context,
+      //               MaterialPageRoute(
+      //                   builder: (context) => const BottomNavBar()));
+      //         },
+      //         child: Row(
+      //           children: const [
+      //             MyText(
+      //               text: "Not Now",
+      //               size: 12,
+      //               weight: FontWeight.w600,
+      //               color: Color(0x80263238),
+      //             ),
+      //             SizedBox(width: 4),
+      //             Icon(Icons.arrow_forward, size: 16, color: Color(0x80263238)),
+      //           ],
+      //         ),
+      //       ),
+      //     )
+      //   ],
+      // ),
       body: Container(
         height: screenSize.height,
         padding: const EdgeInsets.only(bottom: 16),
@@ -62,12 +103,13 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 77),
-            const SizedBox(
+            SizedBox(
               height: 40,
               width: 298,
               child: TextField(
-                style: TextStyle(fontSize: 14),
-                decoration: InputDecoration(
+                controller: emailController,
+                style: const TextStyle(fontSize: 14),
+                decoration: const InputDecoration(
                   hintText: "Email",
                   contentPadding: EdgeInsets.symmetric(vertical: 10),
                   hintStyle: TextStyle(fontSize: 14, fontFamily: "Roboto"),
@@ -75,14 +117,15 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            const SizedBox(
+            SizedBox(
               height: 40,
               width: 298,
               child: TextField(
+                controller: passwordController,
                 obscureText: true,
                 enableSuggestions: false,
-                style: TextStyle(fontSize: 14),
-                decoration: InputDecoration(
+                style: const TextStyle(fontSize: 14),
+                decoration: const InputDecoration(
                     hintText: "Password",
                     contentPadding: EdgeInsets.symmetric(vertical: 10),
                     hintStyle: TextStyle(fontSize: 14, fontFamily: "Roboto")),
@@ -93,10 +136,7 @@ class LoginPage extends StatelessWidget {
               height: 40,
               width: 298,
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => BottomNavBar()));
-                },
+                onPressed: singInWithEmail,
                 style: ElevatedButton.styleFrom(backgroundColor: accentColor),
                 child: const Text(
                   "Log In",
@@ -159,28 +199,23 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  "Don't have account?",
-                  style:
-                      TextStyle(fontFamily: "Roboto", color: Color(0xFF9CA6C1)),
-                ),
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegisterPage()));
-                    },
-                    style: TextButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(horizontal: 4)),
-                    child: const Text(
-                      "Create now",
-                      style: TextStyle(fontFamily: "Roboto"),
-                    )),
-              ],
+            RichText(
+              text: TextSpan(
+                style: const TextStyle(
+                    fontFamily: "Roboto", color: Color(0xFF9CA6C1)),
+                text: "Don't have account? ",
+                children: [
+                  TextSpan(
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = widget.onClickedSignUp,
+                    text: "Create now",
+                    style: const TextStyle(
+                        fontFamily: "Roboto",
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             )
           ],
         ),

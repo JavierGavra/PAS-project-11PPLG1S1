@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
+import 'package:pas_project_11pplg1s1/ui/define_main_page/define_page.dart';
 import 'package:pas_project_11pplg1s1/ui/login_singup_page/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,11 +14,11 @@ class IntroPage extends StatefulWidget {
 
 class _IntroPageState extends State<IntroPage> {
   bool isOn = false;
-  bool isIntro = false;
+  bool isIntroDone = false;
 
   Future<void> setPreference() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('isIntro', isIntro);
+    prefs.setBool('isIntroDone', isIntroDone);
   }
 
   @override
@@ -75,14 +76,15 @@ class _IntroPageState extends State<IntroPage> {
                       onPressed: () {
                         setState(() {
                           isOn = !isOn;
-                          isIntro = !isIntro;
+                          isIntroDone = true;
                           setPreference();
                         });
                         Timer(const Duration(milliseconds: 1400), () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
+                                  builder: (context) =>
+                                      const DefineIntroPage()));
                         });
                       },
                       style: ButtonStyle(

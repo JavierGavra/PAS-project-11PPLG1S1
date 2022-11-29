@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
@@ -8,6 +9,7 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final user = FirebaseAuth.instance.currentUser!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -52,9 +54,7 @@ class AccountPage extends StatelessWidget {
                         border: Border.all(width: 2),
                         borderRadius: BorderRadius.circular(10)),
                     child: MyText(
-                        text: "pas.pakaji2022@gmail.com",
-                        size: 12,
-                        weight: FontWeight.w500),
+                        text: user.email!, size: 12, weight: FontWeight.w500),
                   ),
                   const SizedBox(height: 61),
                   button(Icons.account_circle, "Account", () {}),
@@ -65,7 +65,8 @@ class AccountPage extends StatelessWidget {
                   const SizedBox(height: 18),
                   button(Icons.info, "About", () {}),
                   const SizedBox(height: 18),
-                  button(Icons.logout, "Log Out", () {}),
+                  button(Icons.logout, "Log Out",
+                      () => FirebaseAuth.instance.signOut()),
                 ],
               ),
             ),

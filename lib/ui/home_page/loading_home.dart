@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
-import 'package:pas_project_11pplg1s1/model/recipe_list_model.dart';
-import 'package:pas_project_11pplg1s1/service/api_service.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_breakfast.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_drink.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_snack.dart';
 import 'package:pas_project_11pplg1s1/ui/home_page/tab_soup.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
-import 'package:pas_project_11pplg1s1/widgets/featured_card.dart';
 import 'package:pas_project_11pplg1s1/widgets/shimmer_widget.dart';
 
 class HomePageLoading extends StatefulWidget {
@@ -18,7 +15,6 @@ class HomePageLoading extends StatefulWidget {
 }
 
 class _HomePageLoadingState extends State<HomePageLoading> {
-  RecipeList? _recipeList;
   final List<String> _tabBarName = ["Breakfast", "Soup", "Drink", "Snack"];
   final List<Widget> _tabBarPages = const [
     TabBreakfast(),
@@ -51,12 +47,12 @@ class _HomePageLoadingState extends State<HomePageLoading> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         MyText(
-                            text: "Hi, Javier Rasyid Abhifawwaz",
+                            text: "Loading...",
                             size: 15,
                             weight: FontWeight.w500),
                         SizedBox(height: 7),
                         MyText(
-                            text: "What do you want to cook?",
+                            text: "Procesed data...",
                             size: 12,
                             weight: FontWeight.w300),
                       ],

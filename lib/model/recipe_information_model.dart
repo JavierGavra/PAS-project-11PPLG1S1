@@ -30,7 +30,7 @@ class RecipeInformation {
   List<String>? dishTypes;
   List<String>? diets;
   List<dynamic>? occasions;
-  WinePairing? winePairing;
+  // WinePairing? winePairing;
   String? instructions;
   List<AnalyzedInstructions>? analyzedInstructions;
   Null? originalId;
@@ -68,7 +68,7 @@ class RecipeInformation {
       this.dishTypes,
       this.diets,
       this.occasions,
-      this.winePairing,
+      // this.winePairing,
       this.instructions,
       this.analyzedInstructions,
       this.originalId,
@@ -111,9 +111,9 @@ class RecipeInformation {
     dishTypes = json['dishTypes'].cast<String>();
     diets = json['diets'].cast<String>();
     occasions = json['occasions'].cast<dynamic>();
-    winePairing = json['winePairing'] != null
-        ? new WinePairing.fromJson(json['winePairing'])
-        : null;
+    // winePairing = json['winePairing'] != null
+    // ? new WinePairing.fromJson(json['winePairing'])
+    //     : null;
     instructions = json['instructions'];
     if (json['analyzedInstructions'] != null) {
       analyzedInstructions = <AnalyzedInstructions>[];
@@ -161,9 +161,9 @@ class RecipeInformation {
     data['dishTypes'] = this.dishTypes;
     data['diets'] = this.diets;
     data['occasions'] = this.occasions;
-    if (this.winePairing != null) {
-      data['winePairing'] = this.winePairing!.toJson();
-    }
+    // if (this.winePairing != null) {
+    //   data['winePairing'] = this.winePairing!.toJson();
+    // }
     data['instructions'] = this.instructions;
     if (this.analyzedInstructions != null) {
       data['analyzedInstructions'] =
@@ -308,27 +308,27 @@ class Metric {
   }
 }
 
-class WinePairing {
-  List<dynamic>? pairedWines;
-  String? pairingText;
-  List<dynamic>? productMatches;
+// class WinePairing {
+//   List<dynamic>? pairedWines;
+//   String? pairingText;
+//   List<dynamic>? productMatches;
 
-  WinePairing({this.pairedWines, this.pairingText, this.productMatches});
+//   WinePairing({this.pairedWines, this.pairingText, this.productMatches});
 
-  WinePairing.fromJson(Map<String, dynamic> json) {
-    pairedWines = json['pairedWines'].cast<dynamic>();
-    pairingText = json['pairingText'];
-    productMatches = json['productMatches'].cast<dynamic>();
-  }
+//   WinePairing.fromJson(Map<String, dynamic> json) {
+//     pairedWines = json['pairedWines'].cast<dynamic>();
+//     pairingText = json['pairingText'];
+//     productMatches = json['productMatches'].cast<dynamic>();
+//   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['pairedWines'] = this.pairedWines;
-    data['pairingText'] = this.pairingText;
-    data['productMatches'] = this.productMatches;
-    return data;
-  }
-}
+//   Map<String, dynamic> toJson() {
+//     final Map<String, dynamic> data = new Map<String, dynamic>();
+//     data['pairedWines'] = this.pairedWines;
+//     data['pairingText'] = this.pairingText;
+//     data['productMatches'] = this.productMatches;
+//     return data;
+//   }
+// }
 
 class AnalyzedInstructions {
   String? name;

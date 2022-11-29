@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pas_project_11pplg1s1/common/app_color.dart';
-import 'package:pas_project_11pplg1s1/model/recipe_nutition_model.dart';
-import 'package:pas_project_11pplg1s1/service/api_service.dart';
 import 'package:pas_project_11pplg1s1/ui/detail_page/detail_page.dart';
 import 'package:pas_project_11pplg1s1/widgets/custom_text.dart';
 import 'package:pas_project_11pplg1s1/widgets/shimmer_widget.dart';
 
-class FoodHomeCard extends StatefulWidget {
+class FoodHomeCard extends StatelessWidget {
   const FoodHomeCard({
     super.key,
     required this.idResep,
@@ -18,29 +16,6 @@ class FoodHomeCard extends StatefulWidget {
   final int idResep;
 
   @override
-  State<FoodHomeCard> createState() => _FoodHomeCardState();
-}
-
-class _FoodHomeCardState extends State<FoodHomeCard> {
-  // RecipeNutrition? _recipeNutrition;
-  // bool isLoading = true;
-
-  // Future getApi() async {
-  //   _recipeNutrition =
-  //       await ApiService().getRecipeNutrition(widget.idResep.toString());
-  //   setState(() {
-  //     isLoading = false;
-  //   });
-  // }
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   getApi();
-  // }
-
-  @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     return InkWell(
@@ -50,7 +25,7 @@ class _FoodHomeCardState extends State<FoodHomeCard> {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => DetailPage(idResep: widget.idResep)));
+                builder: (context) => DetailPage(idResep: idResep)));
       },
       child: Ink(
         height: 160,
@@ -91,7 +66,7 @@ class _FoodHomeCardState extends State<FoodHomeCard> {
                     bottomRight: Radius.circular(30),
                   ),
                   child: Image.network(
-                    widget.cardImg,
+                    cardImg,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -103,7 +78,7 @@ class _FoodHomeCardState extends State<FoodHomeCard> {
               child: SizedBox(
                 height: 36,
                 child: Text(
-                  widget.title,
+                  title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
@@ -124,7 +99,7 @@ class _FoodHomeCardState extends State<FoodHomeCard> {
                       bottomRight: Radius.circular(24),
                     )),
                 child: MyText(
-                  text: widget.category,
+                  text: category,
                   size: 10,
                   weight: FontWeight.w500,
                   color: primaryColor,
